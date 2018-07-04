@@ -1,0 +1,104 @@
+<html>
+<head><title>Registration</title>
+<link rel="stylesheet" href="style.css"/>
+<script>
+function validate(){
+var fn=document.f2.fn.value;
+localStorage.setItem('firstname',fn);
+if(fn==""){
+var p1 = document.getElementById("p1");
+var v = document.createTextNode("Enter First Name ");
+p1.appendChild(v);
+document.f2.fn.style.borderColor="red";
+document.f2.fn.focus();
+}
+var ln=document.f2.ln.value;
+localStorage.setItem('lastname',ln);
+if(ln==""){
+var p2 = document.getElementById("p2");
+var x = document.createTextNode("Enter Last Name ");
+p2.appendChild(x);
+document.f2.ln.style.borderColor="red";
+document.f2.ln.focus();
+}
+var phn=document.f2.pn.value;
+localStorage.setItem('ph',phn);
+var di= /^\d{10}$/;
+var result=di.test(phn);
+if(result){
+}else{
+var p4 = document.getElementById("p4");
+var w = document.createTextNode("Enter Contect Number");
+p4.appendChild(w);
+document.f2.pn.style.borderColor="red";
+document.f2.pn.focus();
+}
+var e=document.f2.em.value;
+localStorage.setItem('emi',e);
+var expe= /^([a-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+var resulte=expe.test(e);
+if(resulte){
+}else{
+var p3 = document.getElementById("p3");
+var n = document.createTextNode("Enter Email ID");
+p3.appendChild(n);
+document.f2.em.style.borderColor="red";
+document.f2.em.focus();
+}
+var pass=document.f2.pass.value;
+var pas = /(?:[A-Z].*[0-9])|(?:[0-9].*[A-Z])/;
+var res = pas.test(pass);
+if(res)
+{
+
+}else{
+var p5 = document.getElementById("p5");
+var q= document.createTextNode("Enter Strong password ");
+p5.appendChild(q);
+document.f2.pass.style.borderColor="red";
+document.f2.pass.focus();	
+}
+function store() {
+    localStorage.setItem('email', em.value);
+    //localStorage.setItem('pw', pw.value);
+}
+
+}
+
+</script>
+</head>
+<body background="bicycle.jpg">
+<h1 align="Center"> Registration</h1><br>
+<hr>
+<div class="wrapper">
+<div class="text-center">
+<form name="f2" class="form-signin" onload="stor()">
+
+
+<span title="Enter First Name:"><input type="text" name="fn" placeholder="Enter First Name"/></span>
+
+<lable id="p1" style="color: red"></lable>
+
+
+
+<span title="Enter Last Name:"><input placeholder="Enter Last Name" type="text" name="ln"/>
+<lable id="p2" style="color: red"> </lable>
+<span title="Example:name@reg.com"><input type="text" name="em" placeholder="Email ID"/>
+<lable id="p3" style="color: red"> </lable>
+
+<span title="Enter Contect Number:"><input type="text" name="pn" placeholder="Contect"/></span><lable id="p4" style="color: red"></lable>
+
+
+<span title="At least 1 Capital Latter & Number:"><input type="password" name="pass" placeholder="Password"/></span>
+<lable id="p5" style="color: red"></lable>
+
+<input type="button" name="signup" Value="Sign Up" Onclick="return validate()" class="button button4" onclick="store()"/>
+
+<input type="reset" name="reset" Value="Clear" class="button button4"/>
+
+<a href="Login.html">Alredy Have Account?</a>
+</form>
+</div>
+</div>
+</body>
+</html>
