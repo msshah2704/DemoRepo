@@ -1,0 +1,67 @@
+<html>
+<head><title>Login</title>
+<link rel="stylesheet" href="style.css"/>
+<script>
+function Validate(){
+var e=document.f1.email.value;
+localStorage.setItem('fname',e);
+//alert(e);
+var pass=document.f1.pass.value;
+var expe= /^([a-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+var resulte=expe.test(e);
+if(resulte){
+
+
+}else{
+var p1 = document.getElementById("p1");
+var n = document.createTextNode("Enter Email ID");
+p1.appendChild(n);
+document.f1.email.style.borderColor="red";
+//alert("Email Validation Fail");
+document.f1.email.focus();
+//return false;
+}
+var pas = /(?:[A-Z].*[0-9])|(?:[0-9].*[A-Z])/;
+var res = pas.test(pass);
+if(pass =="")
+{
+var p2 = document.getElementById("p2");
+var q= document.createTextNode("Enter password ");
+p2.appendChild(q);
+document.f1.pass.style.borderColor="red";
+document.f1.pass.focus();	
+return false;
+}
+
+if(e=="admin@gmail.com" && pass=="Admin123")
+{
+window.location="Home.html";
+
+return false;
+}
+else{
+window.location="Login.html";
+}
+}
+</script>
+</head>
+<body>
+<h1 align="Center" class="heading"> Login</h1><br>
+<hr>
+<div class="wrapper">
+<div class="text-center">
+<form name="f1" class="form-signin">
+<h1 align="center" class="form-signin-heading">Log In</h1>
+<span title="Example:name@login.com"><input type="text" name="email" placeholder="Email" /></span>
+<lable id="p1" style="color: red" ></lable>
+<span title="At Least 1 Capital & Number"><input type="password" name="pass" placeholder="Password"/>
+<lable id="p2" style="color: red"> </lable>
+<input type="button" name="login" Value="Log In" Onclick="return Validate()" class="button button4" class="btn btn-primary btn-lg btn-block login-btn"/>
+<input type="reset" name="reset" Value="Clear" class="button button4"/>
+<a href="Registration.html">New User?</a>
+</div>
+</div>
+</form>
+
+</body>
+</html>
